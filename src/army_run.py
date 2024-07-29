@@ -1,9 +1,9 @@
-import utils as ut
+# import utils as ut
 import pandas as pd
 import numpy as np
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col
-# from utilities import comm_ut as ut
+from utilities import comm_ut as ut
 
 spark = SparkSession.builder.appName("Test").getOrCreate()
 
