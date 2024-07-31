@@ -3,7 +3,10 @@ import pandas as pd
 import numpy as np
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col
-from utilities import comm_ut as ut
+# from common_utilities import utils as ut
+import sys
+sys.path.append(r'C:\Users\Shubham\Downloads\Pyspark_KT\02_filtering_sorting_data')
+from src.common_utilities.utils import *
 
 spark = SparkSession.builder.appName("Test").getOrCreate()
 
@@ -27,22 +30,22 @@ df = spark.read.csv("Army.csv", header=True)
 print("The dataset has been loaded...")
 
 print("The veterans col is as follows : ")
-ut.show_col(df,"veterans").show()
+show_col(df,"veterans").show()
 
 print("The veterans and Deaths columns is as follows : ")
-ut.show_col(df, ['veterans','deaths']).show()
+show_col(df, ['veterans','deaths']).show()
 
-col_names = ut.get_col_names(df)
+col_names = get_col_names(df)
 print(f"The column names are : {col_names}")
 
-maine_alaska = ut.show_col(df.filter((df.origin == "Maine") | (df.origin == "Alaska")), ['origin','deaths', 'size', 'deserters'])
+maine_alaska = show_col(df.filter((df.origin == "Maine") | (df.origin == "Alaska")), ['origin','deaths', 'size', 'deserters'])
 maine_alaska.show()
 
-deaths_above_50 = ut.get_above(df,'deaths', 50)
+deaths_above_50 = get_above(df,'deaths', 50)
 print("The data for deaths above 50 is : ")
 deaths_above_50.show()
 
 print("The rows for deaths above 500 and less than 50 are : ")
-ut.get_between(df,"deaths", 500, 50).show()
+get_between(df,"deaths", 500, 50).show()
 
 print("*"*75)
