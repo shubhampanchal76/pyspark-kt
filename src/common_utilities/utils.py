@@ -4,6 +4,9 @@ from pyspark.sql.functions import trim, regexp_replace, col,desc
 from pyspark.sql.functions import sum as pyspark_sum
 from pyspark.sql.types import FloatType
 import pyspark.sql.functions as F
+from pyspark.sql.functions import count, mean, stddev, min, max, median
+from pyspark.sql.types import FloatType, DoubleType, IntegerType
+import pyspark.sql.functions as Fom pyspark.sql.functions import col,aggregate
 
 def change_item_price(df):
     df = df.withColumn("item_price", trim(regexp_replace(col("item_price"), "\\$", "")).cast(FloatType()))
@@ -131,3 +134,40 @@ def get_avg_order_value(revenue, total_orders):
 
 def get_unique_item_cnt(df):
     return df.select('item_name').distinct().count()
+##
+
+def convert_to_numeric(df, columns):
+    for column in columns:
+        df = df.withColumn(column, col(column).cast(FloatType()))
+    return df
+
+def continent_by_avg_wine(df, col1, col2, agg_method):
+    return df.groupBy(col1).agg({col2: agg_method})
+
+def get_group_aggs(df, col1, col2):
+    return df.groupBy(col1).agg(
+    count(col2).alias('count'),
+    mean(col2).alias('mean'),
+    stddev(col2).alias('stddev'),
+    min(col2).alias('min'),
+    max(col2).alias('max')
+    )
+
+def get_group_mean_by(df, colm):
+    return df.groupBy('continent').mean()
+
+def get_medians(df, grp_col):
+    numeric_columns = [field.name for field in df.schema.fields if isinstance(field.dataType, (FloatType, DoubleType, IntegerType))]
+    
+    # Filter out 'continent' from numeric columns if it exists
+    numeric_columns = [col for col in numeric_columns if col != grp_col]
+    
+    agg_expressions = [median(col).alias(f'mean_{col}') for col in numeric_columns]
+    
+    return df.groupBy(grp_col).agg(*agg_expressions)
+
+def get_group_MinMaxMean(df, col1, col2):
+  return df.groupBy(col1).agg(
+        F.mean(col2).alias(f"mean_{col2}"),
+        F.min(col2).alias(f"min_{col2}"),
+        F.max(col2).alias(f"max_{col2}"))
