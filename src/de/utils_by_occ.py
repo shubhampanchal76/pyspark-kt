@@ -72,7 +72,7 @@ def calculate_mean_age_by_occupation(df):
 
 
 def mean_pretestscore_nighthawks(df,colm):
-  result= df.filter(regiment.regiment == colm).selectExpr("avg(preTestScore)").collect()[0][0]
+  result= df.filter(df.regiment == colm).selectExpr("avg(preTestScore)").collect()[0][0]
   return result
 
 
@@ -80,19 +80,19 @@ def mean_pretestscore_nighthawks(df,colm):
 
 
 def mean_pretestscore_company(df,grp_colm):
-   mean = df.groupBy(grp_colm).agg(F.mean("preTestScore")).show()
+   mean = df.groupBy(grp_colm).agg(F.mean("preTestScore"))
    return mean
 
 
 def mean_pretestscore_regiment_company(df):
-  mean = df.groupBy("regiment", "company").agg(F.mean("preTestScore")).show()
+  mean = df.groupBy("regiment", "company").agg(F.mean("preTestScore"))
   return mean
 
 def regiment_company_count(df):
-  result=df.groupBy("regiment", "company").count().show()
+  result=df.groupBy("regiment", "company").count()
   return result
 
 
 def group_by_regiment_company(df):
- result=df.groupBy("regiment", "company").mean().show()
+ result=df.groupBy("regiment", "company").mean()
  return result
