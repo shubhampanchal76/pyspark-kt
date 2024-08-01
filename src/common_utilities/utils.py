@@ -6,7 +6,8 @@ from pyspark.sql.types import FloatType
 import pyspark.sql.functions as F
 from pyspark.sql.functions import count, mean, stddev, min, max, median
 from pyspark.sql.types import FloatType, DoubleType, IntegerType
-import pyspark.sql.functions as Fom pyspark.sql.functions import col,aggregate
+import pyspark.sql.functions as F
+from pyspark.sql.functions import col,aggregate
 
 def change_item_price(df):
     df = df.withColumn("item_price", trim(regexp_replace(col("item_price"), "\\$", "")).cast(FloatType()))
