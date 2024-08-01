@@ -252,3 +252,15 @@ def regiment_company_count(df):
 
 def group_by_regiment_company(df):
  return df.groupBy("regiment", "company").mean()
+
+def get_null_count(df, colm):
+    return df.filter(df[colm].isNull()).count()
+
+def get_duplicate_counts(df):
+    return  df.groupBy(df.columns).count().filter("count > 1").count()
+
+def drop_duplicates(df):
+    return df.dropDuplicates()
+
+def fill_nulls(df, dicts_val):
+    return df.fillna(dicts_val)
