@@ -1,12 +1,10 @@
 import pandas as pd
 from pyspark.sql import SparkSession
-import sys
-sys.path.append(r'C:\Users\Shubham\Downloads\Pyspark_KT\02_filtering_sorting_data')
-from src.common_utilities.utils import *
+from utils_by_occ import *
 
 url = 'https://raw.githubusercontent.com/justmarkham/DAT8/master/data/u.user'
-user = pd.read_csv(url)
-user.to_csv("Consumption.csv", index=False)
+user = pd.read_csv(url, sep='|')
+user.to_csv("user.csv", index=False)
 
 spark = SparkSession.builder.appName('Test').getOrCreate()
 
@@ -14,7 +12,7 @@ print("*"*75)
 print("*"*75)
 print("*"*75)
 
-df = spark.read.csv(".csv", header=True)
+df = spark.read.csv("user.csv", header=True)
 print("The dataset has been loaded...")
 
 
@@ -38,3 +36,6 @@ print(" gender percentage by occupation :")
 gender_percentage_per_occupation(df).show()
 
 
+print("*"*75)
+print("*"*75)
+print("*"*75)
