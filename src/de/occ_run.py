@@ -1,6 +1,9 @@
 import pandas as pd
 from pyspark.sql import SparkSession
-from utils_by_occ import *
+import sys, os
+sys.path.append(os.getcwd())
+# sys.path.append(r'C:\Users\Shubham\Downloads\Pyspark_KT\02_filtering_sorting_data')
+from src.common_utilities.utils import *
 
 url = 'https://raw.githubusercontent.com/justmarkham/DAT8/master/data/u.user'
 user = pd.read_csv(url, sep='|')
@@ -32,8 +35,8 @@ print(" mean age by occupation by gender: ")
 mean_age_by_occupation_gender(df).show()
 
 
-print(" gender percentage by occupation :")
-gender_percentage_per_occupation(df).show()
+# print(" gender percentage by occupation :")
+# gender_percentage_per_occupation(df).show()
 
 
 print("*"*75)

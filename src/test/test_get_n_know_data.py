@@ -1,7 +1,7 @@
 import pytest
-import sys
 from pyspark.sql import SparkSession
-sys.path.append(r'C:\Users\Shubham\Downloads\Pyspark_KT\02_filtering_sorting_data')
+import sys, os
+sys.path.append(os.getcwd())
 from src.common_utilities.utils import *
 import pandas as pd
 import numpy as np
@@ -82,7 +82,3 @@ test_get_null_count()
 test_fill_nulls()
 test_get_duplicate_counts()
 test_drop_duplicates()
-
-
-
-

@@ -1,7 +1,9 @@
 import pandas as pd
 from pyspark.sql import SparkSession
-import sys
-sys.path.append(r'C:\Users\Shubham\Downloads\Pyspark_KT\02_filtering_sorting_data')
+import sys, os
+sys.path.append(os.getcwd())
+# sys.path.append(r'C:\Users\Shubham\Downloads\Pyspark_KT\02_filtering_sorting_data')
+from src.common_utilities.utils import *
 from src.common_utilities.utils import *
 
 url = 'https://raw.githubusercontent.com/justmarkham/DAT8/master/data/drinks.csv'

@@ -1,6 +1,9 @@
 import pandas as pd
 from pyspark.sql import SparkSession
-from utils_by_occ import *
+import sys, os
+sys.path.append(os.getcwd())
+# sys.path.append(r'C:\Users\Shubham\Downloads\Pyspark_KT\02_filtering_sorting_data')
+from src.common_utilities.utils import *
 
 raw_data = {'regiment': ['Nighthawks', 'Nighthawks', 'Nighthawks', 'Nighthawks', 'Dragoons', 'Dragoons', 'Dragoons', 'Dragoons', 'Scouts', 'Scouts', 'Scouts', 'Scouts'],
         'company': ['1st', '1st', '2nd', '2nd', '1st', '1st', '2nd', '2nd','1st', '1st', '2nd', '2nd'],
