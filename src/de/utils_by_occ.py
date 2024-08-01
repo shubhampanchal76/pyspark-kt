@@ -1,19 +1,7 @@
-
 from pyspark.sql.functions import col, count, sum
-from pyspark.sql.functions import col, count, when
 import pandas as pd
 import numpy as np
-from pyspark.sql.functions import trim, regexp_replace, col,desc
-from pyspark.sql.functions import sum as pyspark_sum
 import pyspark.sql.functions as F
-from pyspark.sql.functions import count, mean, stddev, min, max, median
-from pyspark.sql.types import FloatType, DoubleType, IntegerType
-from pyspark.sql.functions import col,aggregate
-from pyspark.sql.functions import col, count, when
-
-
-
-
 
 
 def male_ratio_per_occupation(df):
