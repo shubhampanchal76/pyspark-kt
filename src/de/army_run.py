@@ -4,8 +4,10 @@ import numpy as np
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col
 # from common_utilities import utils as ut
-import sys
-sys.path.append(r'C:\Users\Shubham\Downloads\Pyspark_KT\02_filtering_sorting_data')
+import sys, os
+sys.path.append(os.getcwd())
+# sys.path.append(r'C:\Users\Shubham\Downloads\Pyspark_KT\02_filtering_sorting_data')
+from src.common_utilities.utils import *
 from src.common_utilities.utils import *
 
 spark = SparkSession.builder.appName("Test").getOrCreate()
@@ -24,6 +26,8 @@ raw_data = {'regiment': ['Nighthawks', 'Nighthawks', 'Nighthawks', 'Nighthawks',
 data = pd.DataFrame(data=raw_data)
 data.to_csv("Army.csv",index=False)
 
+print("*"*75)
+print("*"*75)
 print("*"*75)
 
 df = spark.read.csv("Army.csv", header=True)
@@ -48,4 +52,6 @@ deaths_above_50.show()
 print("The rows for deaths above 500 and less than 50 are : ")
 get_between(df,"deaths", 500, 50).show()
 
+print("*"*75)
+print("*"*75)
 print("*"*75)
