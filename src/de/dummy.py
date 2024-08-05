@@ -31,20 +31,20 @@ logging.info("Data loaded into Spark DataFrame")
 df = convert_to_numeric(df, ['beer_servings','spirit_servings','wine_servings','total_litres_of_pure_alcohol'])
 logging.info("Required columns converted to numeric")
 
-logging.info("Continent-wise mean wine consumption:")
-continent_by_avg_wine(df, 'continent','wine_servings','mean').show()
+logging.info(f"Continent-wise mean wine consumption:")
+continent_by_avg_wine(df, 'continent','wine_servings','mean')
 
-logging.info("DataFrame group wise aggregates:")
-get_group_aggs(df, 'continent', 'wine_servings').show()
+logging.info(f"DataFrame group wise aggregates:")
+get_group_aggs(df, 'continent', 'wine_servings')
 
-logging.info("Group-wise mean for each column:")
-get_group_mean_by(df, 'continent').show()
+logging.info(f"Group-wise mean for each column:")
+get_group_mean_by(df, 'continent')
 
-logging.info("Group-wise median for each column:")
-get_medians(df, 'continent').show()
+logging.info(f"Group-wise median for each column:")
+get_medians(df, 'continent')
 
-logging.info("Continent-wise Min, Max, and Mean for spirit servings:")
-get_group_MinMaxMean(df, 'continent', 'spirit_servings').show()
+logging.info(f"Continent-wise Min, Max, and Mean for spirit servings:")
+get_group_MinMaxMean(df, 'continent', 'spirit_servings')
 
 spark.stop()
 logging.info("SparkSession stopped")
