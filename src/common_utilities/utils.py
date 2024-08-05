@@ -163,7 +163,7 @@ def get_medians(df, grp_col):
     # Filter out 'continent' from numeric columns if it exists
     numeric_columns = [col for col in numeric_columns if col != grp_col]
     
-    agg_expressions = [median(col).alias(f'mean_{col}') for col in numeric_columns]
+    agg_expressions = [median(col).alias(f'median_{col}') for col in numeric_columns]
     
     return df.groupBy(grp_col).agg(*agg_expressions)
 

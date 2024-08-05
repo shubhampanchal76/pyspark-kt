@@ -54,19 +54,19 @@ logging.info(f"The group wise aggregate data has been stored to {out_data_path} 
 
 
 #logging.info("Group-wise mean for each column:")
-group_by_mean=get_group_mean_by(df, 'continent').show()
+group_by_mean=get_group_mean_by(df, 'continent')
 file_name = "group_by_mean.csv"
 group_by_mean= group_by_mean.toPandas()
 group_by_mean = group_by_mean.to_csv(rf"{out_data_path}\{file_name}", index = False)
 logging.info(f"Group-wise mean for each column has been stored to  {out_data_path} as {file_name} ")
 
 
-#logging.info(f"Group-wise median for each column:")
-medians=get_medians(df, 'continent')
-file_name= "medians.csv"
-medians = medians.toPandas()
-medians=medians.to_csv(rf"{out_data_path}\{file_name}", index = False)
-logging.info(f"Group-wise median for each column has been stored to {out_data_path} as {file_name}")
+# #logging.info(f"Group-wise median for each column:")
+# medians=get_medians(df, 'continent')
+# file_name= "medians.csv"
+# medians = medians.toPandas()
+# medians=medians.to_csv(rf"{out_data_path}\{file_name}", index = False)
+# logging.info(f"Group-wise median for each column has been stored to {out_data_path} as {file_name}")
 
 
 #logging.info(f"Continent-wise Min, Max, and Mean for spirit servings:")
