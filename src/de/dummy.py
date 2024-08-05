@@ -6,7 +6,7 @@ sys.path.append(os.getcwd())
 from src.common_utilities.utils import *
 
 import logging
-
+out_data_path = r"C:\Users\Shubham\Desktop\VSCODE\pyspark-kt\out_data"
 # Configure logging (choose a suitable destination for your needs)
 logging.basicConfig(filename='pyspark_consumption.log', level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
@@ -34,11 +34,11 @@ logging.info("Required columns converted to numeric")
 logging.info(f"Continent-wise mean wine consumption:")
 continent_by_avg_wine(df, 'continent','wine_servings','mean')
 
-logging.info(f"DataFrame group wise aggregates:")
-get_group_aggs(df, 'continent', 'wine_servings')
+logging.info("DataFrame group wise aggregates:")
+get_group_aggs(df, 'continent', 'wine_servings').show()
 
-logging.info(f"Group-wise mean for each column:")
-get_group_mean_by(df, 'continent')
+logging.info("Group-wise mean for each column:")
+get_group_mean_by(df, 'continent').show()
 
 logging.info(f"Group-wise median for each column:")
 get_medians(df, 'continent')
