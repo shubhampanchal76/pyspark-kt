@@ -3,5 +3,5 @@ numpy
 pyspark
 pytest
 logging
-yaml
+pyyaml
 boto3
