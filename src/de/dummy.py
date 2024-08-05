@@ -28,11 +28,20 @@ logging.info("SparkSession created successfully")
 df = spark.read.csv("Consumption.csv", header=True)
 logging.info("Data loaded into Spark DataFrame")
 
-df = convert_to_numeric(df, ['beer_servings','spirit_servings','wine_servings','total_litres_of_pure_alcohol'])
-logging.info("Required columns converted to numeric")
 
-logging.info(f"Continent-wise mean wine consumption:")
-continent_by_avg_wine(df, 'continent','wine_servings','mean')
+column= convert_to_numeric(df, ['beer_servings','spirit_servings','wine_servings','total_litres_of_pure_alcohol'])
+file_name= "column.csv"
+column= column.toPandas()
+column = column.to_csv(rf"{out_data_path}\{file_name}", index = False)
+logging.info(f"Required columns converted to numeric has been stored to {out_data_path} as {file_name}")
+
+#logging.info(f"Continent-wise mean wine consumption:")
+continent_wise_mean=continent_by_avg_wine(df, 'continent','wine_servings','mean')
+file_name = "continent_wise_mean.csv"
+continent_wise_mean =  continent_wise_mean.toPandas()
+continent_wise_mean .to_csv(rf"{out_data_path}\{file_name}", index = False)
+logging.info(f"Continent-wise mean wine consumption data has been stored to {out_data_path} as {file_name}")
+
 
 
 
@@ -44,14 +53,29 @@ logging.info(f"The group wise aggregate data has been stored to {out_data_path} 
 
 
 
-logging.info("Group-wise mean for each column:")
-get_group_mean_by(df, 'continent').show()
+#logging.info("Group-wise mean for each column:")
+group_by_mean=get_group_mean_by(df, 'continent').show()
+file_name = "group_by_mean.csv"
+group_by_mean= group_by_mean.toPandas()
+group_by_mean = group_by_mean.to_csv(rf"{out_data_path}\{file_name}", index = False)
+logging.info(f"Group-wise mean for each column has been stored to  {out_data_path} as {file_name} ")
 
-logging.info(f"Group-wise median for each column:")
-get_medians(df, 'continent')
 
-logging.info(f"Continent-wise Min, Max, and Mean for spirit servings:")
-get_group_MinMaxMean(df, 'continent', 'spirit_servings')
+#logging.info(f"Group-wise median for each column:")
+medians=get_medians(df, 'continent')
+file_name= "medians.csv"
+medians = medians.toPandas()
+medians=medians.to_csv(rf"{out_data_path}\{file_name}", index = False)
+logging.info(f"Group-wise median for each column has been stored to {out_data_path} as {file_name}")
+
+
+#logging.info(f"Continent-wise Min, Max, and Mean for spirit servings:")
+get_agg = get_group_MinMaxMean(df, 'continent', 'spirit_servings')
+file_name = "grp_agg.csv"
+get_agg = get_agg.toPandas()
+get_agg = get_agg.to_csv(rf"{out_data_path}\{file_name}", index = False)
+logging.info(f"Continent-wise Min, Max, and Mean for spirit servings has been stored to {out_data_path} as {file_name}")
+
 
 spark.stop()
 logging.info("SparkSession stopped")
