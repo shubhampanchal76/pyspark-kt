@@ -5,4 +5,4 @@ __pycache__/
 
 *.csv
 *.log
-config.yaml
+config/config.yaml
