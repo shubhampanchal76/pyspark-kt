@@ -34,8 +34,15 @@ logging.info("Required columns converted to numeric")
 logging.info(f"Continent-wise mean wine consumption:")
 continent_by_avg_wine(df, 'continent','wine_servings','mean')
 
-logging.info("DataFrame group wise aggregates:")
-get_group_aggs(df, 'continent', 'wine_servings').show()
+
+
+grp_wise_agg = get_group_aggs(df, 'continent', 'wine_servings')
+file_name = "grp_wise_agg.csv"
+grp_wise_agg = grp_wise_agg.toPandas()
+grp_wise_agg.to_csv(rf"{out_data_path}\{file_name}", index = False)
+logging.info(f"The group wise aggregate data has been stored to {out_data_path} as {file_name}")
+
+
 
 logging.info("Group-wise mean for each column:")
 get_group_mean_by(df, 'continent').show()
