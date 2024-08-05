@@ -6,7 +6,7 @@ sys.path.append(os.getcwd())
 from src.common_utilities.utils import *
 
 import logging
-
+out_data_path = r"C:\Users\Shubham\Desktop\VSCODE\pyspark-kt\out_data"
 # Configure logging (choose a suitable destination for your needs)
 logging.basicConfig(filename='pyspark_consumption.log', level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
@@ -34,10 +34,17 @@ logging.info("Required columns converted to numeric")
 logging.info("Continent-wise mean wine consumption:")
 continent_by_avg_wine(df, 'continent','wine_servings','mean').show()
 
-logging.info("DataFrame group wise aggregates:")
-get_group_aggs(df, 'continent', 'wine_servings').show()
+logging.info(f"DataFrame group wise aggregates:{get_group_aggs(df, 'continent', 'wine_servings').show()}")
+grp_wise_agg = get_group_aggs(df, 'continent', 'wine_servings')
+file_name = "grp_wise_agg.csv"
+grp_wise_agg = grp_wise_agg.toPandas()
+grp_wise_agg.to_csv(rf"{out_data_path}\{file_name}", index = False)
+logging.info(f"The group wise aggregate data has been stored to {out_data_path} as {file_name}")
+
+
 
 logging.info("Group-wise mean for each column:")
+file_name = "grp_wise_mean.csv"
 get_group_mean_by(df, 'continent').show()
 
 logging.info("Group-wise median for each column:")
