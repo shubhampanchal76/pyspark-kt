@@ -1,0 +1,10 @@
+# AWS Configuration
+aws:
+  aws_region: "us-east-1"
+  aws_access_key_id: "ASIAYFSXQ23HK3JYZVCP"
+  aws_secret_access_key: "k2ApovC3/yHpTqhln/Mzg9++Mcnx37V4hhSwnrFT"
+  aws_session_token : "IQoJb3JpZ2luX2VjEO///////////wEaCXVzLWVhc3QtMSJIMEYCIQCiDYeTBoX6w9VtRC6B6BUE8nGTPO+P9X1pAylZ911VMAIhAO8tQCW/AYhShTrFQhsLeaVF+vkR1tDOvUrWGqqNOzJzKp0DCNj//////////wEQAhoMNTYxNzUwNTI5NzQyIgxddbPniLNFPwFpQ/sq8QJPUqzuVcktRNjlMB53dLSPNvvfEDvXhtb2dbcDCkpdqvUr53bttzbQ1X0tpCbgpchtoAMbGxeSQCQ7FbBnAjA1NB/Ak3ooe8E5BQ9hyvKvMFLoxseChR9QKHu40mUly6Rk1Cbpk/PziMfGziZX+4GjCe4Ko29xDB2hc8foPKhN1y0oRHmnTN+UhEWmOY3aoSwcAwItAENAaPemHK7Eb5rtjAnHASBexJ9jktGJ8ktiDqpcUu88TY3NuJ8VhjArYT1mnIxpBGVTtUFuwnD47rGmj8VMky/VHsv/b+MsHzd7pd71zk6DOGIMfuCkMT2AQDONw+5vtQnEQE5dg8KZiBDHsiWaCABxUxeK2gvChxFpr8TzHROfKygyasOmrAjdnFcebfLZ7pMNtXKp4EIFpqSay5avKclZvU2wq9s6Jb5bfW6YwP3b84/XHgtCB0drKym7J9EsnxJpeqUZWUqQhPEYHK7n5+fh0OauF5dQs+lpD6Ew9M/DtQY6pQGPH7qLdOC9/o5tCjXVCi5pfvX+hTlkB05gcful9mQeoQT79fV11JZkoXWfFed23hZscMy8F2udfHI0bcLJKXyHp7Y8wrRW7ggPo79De5vqePppiaMvmWDZGmks+qXDd+YpfY0eqGaMDFHiHD+IFLkhZkiH/W1essOERDx8qk8R4jlvRahxPtIywopihncdMzsr/QHpx230bNhR1Ar/0WlEbhmdcDk="
+  s3_bucket_name: "shubham-pyspark-buck"
+  folder_name : "Regiments"
+  input_data_folder : "input_data"
+  output_data_folder: "output_data"

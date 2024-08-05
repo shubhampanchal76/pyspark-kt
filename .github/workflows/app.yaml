@@ -1,0 +1,31 @@
+name: Python application
+
+on:
+  push:
+    branches: [ shubham_branch ]
+  pull_request:
+    branches: [ shubham_branch ]
+  schedule:
+    - cron: '0 0 * * *'  # This will run the workflow every day at midnight UTC
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12.4'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run tests
+      run: |
+        pytest

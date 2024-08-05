@@ -1,0 +1,7 @@
+pandas
+numpy
+pyspark
+pytest
+logging
+yaml
+boto3
