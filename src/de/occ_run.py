@@ -14,7 +14,7 @@ from src.common_utilities.utils import *
 
 # Configure logging
 logging.basicConfig(
-    filename='pyspark_app.log',  # Log file name
+    filename='occupation.log',  # Log file name
     level=logging.INFO,  # Logging level (e.g., DEBUG, INFO, WARNING, ERROR, CRITICAL)
     format='%(asctime)s %(levelname)s %(message)s'  # Log message format
 )
