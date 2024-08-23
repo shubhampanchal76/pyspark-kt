@@ -82,6 +82,13 @@ def show_n_rows(df,n):
 def get_total_obs(df):
     return df.count()
 
+def append_dfs(df1, df2):
+    '''
+    Takes 2 dataframes as input
+    returns a merged dataframe 
+    '''
+    return df1.union(df2)
+
 # for getting total number of columns in dataset
 def get_columns_nums(df):
     return len(df.columns)
