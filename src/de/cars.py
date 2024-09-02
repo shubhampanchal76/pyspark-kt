@@ -14,7 +14,7 @@ from datetime import datetime
 # Get current timestamp
 current_timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 print(current_timestamp)
-log_filename = f"Log_Cars_{current_timestamp}.log"
+log_filename = rf"logs/cars/Log_{current_timestamp}.log"
 logging.basicConfig(filename=log_filename, level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
