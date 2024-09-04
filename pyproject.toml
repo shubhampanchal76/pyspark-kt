@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "pyspark-kt"
+version = "0.1.0"
+description = "This is a pyspark kt repository"
+authors = ["shubhampanchal76 <shubhampanchal.p41@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "^2.2.2"
+matplotlib = "^3.9.2"
+seaborn = "^0.13.2"
+pytest = "^8.3.2"
+pyspark = "^3.5.2"
+logging = "^0.4.9.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+package-mode =false

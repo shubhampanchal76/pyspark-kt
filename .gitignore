@@ -7,3 +7,7 @@ __pycache__/
 *.png
 *.log
 config/config.yaml
+.venv/
+data/
+logs/
+.pytest_cache/
