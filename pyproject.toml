@@ -13,6 +13,8 @@ seaborn = "^0.13.2"
 pytest = "^8.3.2"
 pyspark = "^3.5.2"
 logging = "^0.4.9.6"
+dateutils = "^0.6.12"
+setuptools = "^74.1.1"
 
 
 [build-system]
