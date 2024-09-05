@@ -1,7 +1,0 @@
-pandas
-numpy
-pyspark
-pytest
-logging
-pyyaml
-boto3
