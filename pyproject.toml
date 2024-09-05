@@ -7,20 +7,31 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-pandas = "^2.2.2"
-matplotlib = "^3.9.2"
-seaborn = "^0.13.2"
-pytest = "^8.3.2"
-pyspark = "^3.5.2"
-logging = "^0.4.9.6"
-dateutils = "^0.6.12"
-setuptools = "^74.1.1"
 
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^8.3.2"
-setuptools = "^74.1.2"
 logging = "^0.4.9.6"
+pytest = "^8.3.2"
+dateutils = "^0.6.12"
+setuptools = "^74.1.2"
+
+
+[tool.poetry.group.de.dependencies]
+pyspark = "^3.5.2"
+
+
+[tool.poetry.group.df.dependencies]
+pandas = "^2.2.2"
+numpy = "^2.1.1"
+
+
+[tool.poetry.group.viz.dependencies]
+matplotlib = "^3.9.2"
+seaborn = "^0.13.2"
+
+
+[tool.poetry.group.ml.dependencies]
+scikit-learn = "^1.5.1"
 
 [build-system]
 requires = ["poetry-core"]
